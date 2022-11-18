@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Saket's Website | Trailer V1</title>
+    <link rel="shortcut icon" href="../../images/blue-thumbs-up-icon.png"/>
+    
+    <script src="main.js" defer></script>
+
+    <style>
+        body {
+            background-color: #141414;
+            min-height: 100vh;
+            margin: 0px;
+        }
+
+        body:hover>#trailer {
+            opacity: 1;
+        }
+
+        #trailer {
+            height: 20px;
+            width: 20px;
+            background-color: white;
+            border-radius: 20px;
+
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            z-index: 10000;
+
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 500ms ease;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="trailer"></div>
+
+    <script>
+
+        const trailer = document.getElementById("trailer");
+
+        window.onmousemove = e => {
+            const x = e.clientX - trailer.offsetWidth / 2;
+            const y = e.clientY - trailer.offsetHeight / 2;
+
+            const keyframes = {
+                transform: `translate(${x}px, ${y}px)`
+            };
+
+            trailer.animate(keyframes, {
+                duration: 800,
+                fill: "forwards",
+            });
+        };
+
+    </script>
+
+</body>
+
+</html>

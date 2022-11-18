@@ -1,0 +1,62 @@
+/* PJ BUTTONS (PROJECT)*/
+
+.B-holder button {
+    font-family: Helvetica;
+    font-size: 20px;
+    padding: 3px;
+    width: 175px;
+    background-color: var(--main);
+    color: white;
+    border-radius: 15px;
+}
+
+.B-holder button:hover {
+    background-color: gray;
+    opacity: 0.5;
+}
+
+#PJtext {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 15px;
+    background-color: var(--tGray);
+    padding: 5px;
+}
+
+#helloworld{
+    background-color: var(--tGray);
+    height: 79vh;
+    border-radius: 15px;
+}
+
+iframe {
+    background-color: var(--iframeT);
+    height: 79vh;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+
+
+/* PHONE */
+
+@media(max-width: 530px) {
+    #nav button {
+        font-size: 70%;
+    }
+
+    #PJtext {
+        display: flex;
+        flex-direction: column; 
+        font-size: 55%;
+    }
+
+    h1 {
+        font-size: 7vw;
+    }
+
+    #helloworld iframe {
+        height: 100vh;
+    }
+}

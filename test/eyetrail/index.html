@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Saket's Website | Eye Trailer</title>
+    <link rel="shortcut icon" href="../../images/blue-thumbs-up-icon.png"/>
+    
+    <script src="main.js" defer></script>
+
+    <style>
+
+        :root {
+            --scale: 50px;
+            --scale1: calc(var(--scale) / 5);
+            --scale3: calc(var(--scale) * (3/5));
+            --scaleM: calc(var(--scale) / 2);
+        }
+
+        body {
+            background-color: #141414;
+            min-height: 100vh;
+            margin: 0px;
+        }
+
+        body:hover > .trailer {
+            opacity: 1;
+        }
+
+        .trailer {
+            height: var(--scale);
+            width: var(--scale);
+            border-radius: var(--scale);
+            border: 1px solid black;
+            background-color: white;
+
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            z-index: 999;
+
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 500ms ease;
+        }
+
+        .eye {
+            height: var(--scale);
+            width: var(--scale);
+        }
+
+        .eyeball {
+            position: absolute;
+            height: var(--scale1);
+            width: var(--scale1);
+            border-radius: var(--scale1);
+            background-color: black;
+            top: var(--scale3); 
+            left: var(--scaleM);
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="trailerL" class="trailer">
+        <div class="eye">
+            <div class="eyeball"></div>
+        </div>
+    </div>
+
+    <div id="trailerR" class="trailer">
+        <div class="eye">
+            <div class="eyeball"></div>
+        </div>
+    </div>
+
+    <script>
+        //Following Eye Idea - https://www.utahhikes.net/mousetrails.shtml
+
+        let eyes = document.querySelectorAll(".eye");
+        let trailerL = document.getElementById("trailerL");
+        let trailerR = document.getElementById("trailerR");
+
+        window.onmousemove = e => {
+            let x = e.clientX;
+            let y = e.clientY;
+
+            trailerL.animate({transform: `translate(${x}px, ${y - trailerL.offsetHeight / 2}px)`}, {
+                duration: 1500,
+                fill: "forwards",
+                // easing: "ease"
+            });
+            trailerR.animate({transform: `translate(${x - trailerL.offsetWidth}px, ${y - trailerL.offsetHeight / 2}px)`}, {
+                duration: 1500,
+                fill: "forwards",
+                // easing: "linear"
+            });
+
+            eyes.forEach(eye => {
+                let rekt = eye.getBoundingClientRect();
+                let anchorX = rekt.left + rekt.width/2;
+                let anchorY = rekt.top + rekt.height/2;
+                let angleDeg = (Math.atan2((anchorY - y), (anchorX - x))) * 180 / Math.PI;
+                eye.style.transform = `rotate(${120 + angleDeg}deg)`;
+            });
+        };
+
+    </script>
+
+</body>
+
+</html>
