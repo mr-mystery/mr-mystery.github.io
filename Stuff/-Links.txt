@@ -1,5 +1,0 @@
-Wireframe: https://wireframe.cc/1UG08y
-
-AOS: 
-- https://michalsnik.github.io/aos/
-- https://www.sitepoint.com/cool-scroll-animations-made-easy-aos-library/
