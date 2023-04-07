@@ -8,6 +8,10 @@
     <title>Mr Mystery</title>
 
     <style>
+        :root {
+            color-scheme: dark;
+        }
+
         body {
             height: 100vh;
             display: flex;
@@ -15,6 +19,24 @@
             align-items: center;
             flex-direction: column;
             gap: 5vh;
+            margin: 0;
+        }
+
+        .link-con {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5vw;
+        }
+
+        button {
+            background-color: #36393f;
+            border-radius: 15px;
+            transition: all 1s;
+        }
+        button:hover {
+            opacity: .5;
+            scale: .9;
         }
     </style>
 
@@ -23,7 +45,7 @@
 
     <h1>Hello World</h1>
 
-    <div>
+    <div class="link-con">
         <a href="https://mr-mystery.github.io/personal-website/">
             <button>
                 <h2>Personal Website</h2>
